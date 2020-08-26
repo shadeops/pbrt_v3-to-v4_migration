@@ -17,7 +17,16 @@ Yup, I'm an idiot. But its exciting to follow the developments and try out the c
 * `WorldEnd` has been removed
 * New `ColorSpace "name"` graphics state Attribute(?)<br>
 Sets the ColorSpace to be "name" which defines the color space of spectrum parameters. Accepts the following builtin names -
- * todo
+  * todo
+* New `Option "name" "value"` call added<br>
+This sets some global options including
+  * `bool disablepixeljitter` (false)
+  * `bool disablewavelengthjitter` (false)
+  * `string msereferenceimage` ("")
+  * `string msereferenceout` ("")
+  * `integer seed` (0)
+  * `bool forcediffuse` (false)
+  * `bool pixelstats` (false)
 * bool types are no longer quoted
   * pbrt-v3 `"bool parm" ["true"]`
   * pbrt-v4 `"bool parm" [true]`
@@ -78,4 +87,10 @@ Sets the ColorSpace to be "name" which defines the color space of spectrum param
  ### New PMJ02BN Sampler
  * Declared with "pmj02bn"
  * Has `integer pixelsamples` parameter (defaults to 16)
- 
+
+## Shape Changes
+### Cone Shape Removed
+### HeightField Shape Removed
+### NURBS Shape Removed
+### Hyperboloid Shape Removed
+### Paraboloid Shape Removed
