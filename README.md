@@ -7,6 +7,7 @@
 * [Film](#film-changes)
 * [Filter](#filter-changes)
 * [Integrator](#integrator-changes)
+* [Light](#light_changes)
 * [Shape](#shape-changes)
 
 ## Preamble
@@ -146,12 +147,33 @@ The following options are supported
   * exhaustive *(new)*
 * Add `bool regularize` parameter (defaults to false)
 
+## Light Changes
+### All Lights
+* `spectrum scale` is now `float scale`
+### Goniometric Light
+* `string  mapname` is now `string filename`
+### Infinite Light
+* Add `point[4] portal` parameter
+* Remove `integer samples` parameter
+* `string  mapname` is now `string filename`
+* `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
+### Projection Light
+* `string  mapname` is now `string filename`
+* Remove `spectrum I` parameter<br>
+*Spectrum values come only from the supplied image*
+* `float fov` default has changed from 45 to 90
+### Diffuse AreaLight
+* Remove `integer samples` parameter
+* Add "string filename" parameter (defaults to "")
+* `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
+
 ## Shape Changes
-### Cone Shape Removed
-### HeightField Shape Removed
-### NURBS Shape Removed
-### Hyperboloid Shape Removed
-### Paraboloid Shape Removed
+### Shape Removals
+* Cone
+* HeightField
+* NURBS
+* Hyperboloid
+* Paraboloid
 ### Triangle Shape
 * Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
