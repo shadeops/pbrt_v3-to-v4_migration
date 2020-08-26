@@ -36,14 +36,14 @@ This sets some global options including
   * pbrt-v4 `"bool parm" [true]`
 
 ## Camera Changes
-### EnvironmentCamera is now SphericalCamera
+#### EnvironmentCamera is now SphericalCamera
 * Declaration is now "spherical" (was "environment")
 * Add `string mapping` parameter with possible values of
   * equiarea (default)
   * equirect
-### PerspectiveCamera
+#### PerspectiveCamera
 * Remove `float halffov` parameter (just use "fov" parameter)
-### RealisticCamera
+#### RealisticCamera
 * Add `float dispersionfactor` parameter (defaults to 0)
 * Add `float scale` parameter (defaults to 1)
 * Add `string aperture` parameter (defaults to "")<br>
@@ -54,55 +54,55 @@ This sets some global options including
   * star
 
 ## Film Changes
-### ImageFilm is now RGBFilm
+#### ImageFilm is now RGBFilm
 * Declaration is now "rgb" (was "image")
 * `xresolution` and `yresolution` defaults have changed to (1280x720) respectively.
 * `integer[4] pixelbounds` parameter added. If crop region is specificed it will override this. <br>
 (this previously lived on certain integrators)
 * `float maxsampleluminance` changed to `float maxcomponentvalue`
 * Add `bool savefp16` parameter for saving half images. (default true)
-### New GBufferFilm
+#### New GBufferFilm
 * Parameters are the same as RGBFilm
 
 ## Filter Changes
-### All Filters
+#### All Filters
 * Rename `float xwidth` to `float xradius`
 * Rename `float ywidth` to `float yradius`
-### Gaussian Filter
+#### Gaussian Filter
 * `float xradius` and `float yradius` defaults are now 1.5
 * `float alpha` is now `float sigma` default is 0.5
 
 ## Sampler Changes
-### Remove MaxMinDist Sampler
-### Remove 02Sequence Sampler
-### Sobol Sampler
+#### Remove MaxMinDist Sampler
+#### Remove 02Sequence Sampler
+#### Sobol Sampler
 * Add `string randomization` parameter with the following options
  * none
  * owen (default)
  * cranleypatternson
  * xor
- ### New PaddedSobol Sampler
+ #### New PaddedSobol Sampler
  * Declared with "paddedsobol"
  * This has the same parameters as the Sobol Sampler
- ### Stratified Sampler
+ #### Stratified Sampler
  * Remove `integer dimensions` parameter
- ### Halton Sampler
+ #### Halton Sampler
  * Remove `bool samplepixelcenter` parameter
- ### New PMJ02BN Sampler
+ #### New PMJ02BN Sampler
  * Declared with "pmj02bn"
  * Has `integer pixelsamples` parameter (defaults to 16)
 
 ## Integrator Changes
-### General
+#### General
 * `integer[4] pixelbounds` that existed on the various Integrators has been removed and now live on Film
 * Default integrator is now  VolumePath
-### Remove Whitted Integrator
-### Remove DirectLighting Integrator
-### Rename AO Integrator
+#### Remove Whitted Integrator
+#### Remove DirectLighting Integrator
+#### Rename AO Integrator
 * Type name is now "ambientocclusion", previously it was "ao"
 * Remove `integer maxsamples` parameter
 * Add `float maxdistance` parameter (defaults to Inf)
-### BDPT Integrator
+#### BDPT Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
   * uniform
@@ -110,15 +110,15 @@ The following options are supported
   * bvh
   * exhaustive *(new)*
 * Add `bool regularize` parameter (defaults to false)
-### New LightPath Integrator
+#### New LightPath Integrator
 * Declared with "lightpath"
 * Has `integer maxdepth` parameter (defaults to 5)
 ### New RandomWalk Integrator
 * Declared with "randomwalk"
 * Has `integer maxdepth` parameter (defaults to 5)
-### MLT Integrator
+#### MLT Integrator
 * Add `bool regularize` parameter (defaults to false)
-### Path Integrator
+#### Path Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
   * uniform
@@ -126,20 +126,20 @@ The following options are supported
   * bvh (default)
   * exhaustive *(new)*
 * Add `bool regularize` parameter (defaults to false)
-### New SimplePath Integrator
+#### New SimplePath Integrator
 * Declared with "simplepath"
 * New parameters include
   * `integer maxdepth` (defaults to 5)
   * `bool samplelights` (defaults to true)
   * `bool samplebsdf` (defaults to true)
-### New SimpleVolPath Integrator
+#### New SimpleVolPath Integrator
 * Declared with "simplevolapath"
 * Has `integer maxdepth` parameter (defaults to 5)
-### SPPM Integrator
+#### SPPM Integrator
 * Add `integer seed` parameter (defaults to 0)<br>
 (This does **not** lookup the seed value stored in `Options`)
 * Add `bool regularize` parameter (defaults to false)
-### VolPath Integrator
+#### VolPath Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
   * uniform
@@ -149,30 +149,30 @@ The following options are supported
 * Add `bool regularize` parameter (defaults to false)
 
 ## Light Changes
-### All Lights
+#### All Lights
 * `spectrum scale` is now `float scale`
-### Goniometric Light
+#### Goniometric Light
 * `string  mapname` is now `string filename`
-### Infinite Light
+#### Infinite Light
 * Add `point[4] portal` parameter
 * Remove `integer samples` parameter
 * `string  mapname` is now `string filename`
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
-### Projection Light
+#### Projection Light
 * `string  mapname` is now `string filename`
 * Remove `spectrum I` parameter<br>
 *Spectrum values come only from the supplied image*
 * `float fov` default has changed from 45 to 90
-### Diffuse AreaLight
+#### Diffuse AreaLight
 * Remove `integer samples` parameter
 * Add "string filename" parameter (defaults to "")
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 
 ## Texture Changes
-### Remove UVTexture
-### Fbm Texture
+#### Remove UVTexture
+#### Fbm Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
-### ImageMap Texture
+#### ImageMap Texture
 * Add `float scale` parmeter, (defaults to 1)
 * Add new "octahedralsphere" mode to `string wrap`
 * Remove `bool trilinear` parameter
@@ -187,29 +187,29 @@ One of the following options can be specified. (The default is based on the file
   * linear
   * sRGB
   * gamma float_value
-### Marble Texture
+#### Marble Texture
 * Output is now only spectrum, in pbrt-v3 it was float and spectrum
-### Scale Texture
+#### Scale Texture
 * `texture tex1` is now just `texture tex`
 * `texture tex2` has been replaced with `float scale` (defaults to 1)
-### Windy Texture
+#### Windy Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
-### Wrinkled Texture
+#### Wrinkled Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 
 
 
 ## Shape Changes
-### Shape Removals
+#### Shape Removals
 * Cone
 * HeightField
 * NURBS
 * Hyperboloid
 * Paraboloid
-### Triangle Shape
+#### Triangle Shape
 * Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
-### Ply Shape
+#### Ply Shape
 * Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
 
