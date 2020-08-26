@@ -6,6 +6,8 @@
 * [Camera](#camera-changes)
 * [Film](#film-changes)
 * [Filter](#filter-changes)
+* [Integrator](#integrator-changes)
+* [Shape](#shape-changes)
 
 ## Preamble
 This is not meant to be the official document representing the changes between pbrt-v3 and pbrt-v4, I'll leave that to Matt's much more capable hands. These are my notes during the process of updating an exporter from v3 to v4. I am making these public to aid others in the transition until a formal page is created by Matt. The changes listed are deduced from reading through the source code of https://github.com/mmp/pbrt-v4. As pbrt-v4 is still an early release and changing rapidly expect these notes to be out of sync at times. When in doubt, trust the code! :)
@@ -88,9 +90,72 @@ This sets some global options including
  * Declared with "pmj02bn"
  * Has `integer pixelsamples` parameter (defaults to 16)
 
+## Integrator Changes
+### General
+* `integer[4] pixelbounds` that existed on the various Integrators has been removed and now live on Film
+* Default integrator is now  VolumePath
+### Remove Whitted Integrator
+### Remove DirectLighting Integrator
+### Rename AO Integrator
+* Type name is now "ambientocclusion", previously it was "ao"
+* Remove `integer maxsamples` parameter
+* Add `float maxdistance` parameter (defaults to Inf)
+### BDPT Integrator
+* Replace `string lightsamplestrategy` with `string lightsampler`<br>
+The following options are supported
+  * uniform
+  * power (default)
+  * bvh
+  * exhaustive *(new)*
+* Add `bool regularize` parameter (defaults to false)
+### New LightPath Integrator
+* Declared with "lightpath"
+* Has `integer maxdepth` parameter (defaults to 5)
+### New RandomWalk Integrator
+* Declared with "randomwalk"
+* Has `integer maxdepth` parameter (defaults to 5)
+### MLT Integrator
+* Add `bool regularize` parameter (defaults to false)
+### Path Integrator
+* Replace `string lightsamplestrategy` with `string lightsampler`<br>
+The following options are supported
+  * uniform
+  * power
+  * bvh (default)
+  * exhaustive *(new)*
+* Add `bool regularize` parameter (defaults to false)
+### New SimplePath Integrator
+* Declared with "simplepath"
+* New parameters include
+  * `integer maxdepth` (defaults to 5)
+  * `bool samplelights` (defaults to true)
+  * `bool samplebsdf` (defaults to true)
+### New SimpleVolPath Integrator
+* Declared with "simplevolapath"
+* Has `integer maxdepth` parameter (defaults to 5)
+### SPPM Integrator
+* Add `integer seed` parameter (defaults to 0)<br>
+(This does **not** lookup the seed value stored in `Options`)
+* Add `bool regularize` parameter (defaults to false)
+### VolPath Integrator
+* Replace `string lightsamplestrategy` with `string lightsampler`<br>
+The following options are supported
+  * uniform
+  * power
+  * bvh (default)
+  * exhaustive *(new)*
+* Add `bool regularize` parameter (defaults to false)
+
 ## Shape Changes
 ### Cone Shape Removed
 ### HeightField Shape Removed
 ### NURBS Shape Removed
 ### Hyperboloid Shape Removed
 ### Paraboloid Shape Removed
+### Triangle Shape
+* Remove `texture alpha` parameter
+* Remove `texture shadowalpha` parameter
+### Ply Shape
+* Remove `texture alpha` parameter
+* Remove `texture shadowalpha` parameter
+
