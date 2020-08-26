@@ -1,12 +1,13 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
+## Table of Contents
+* [Preamble](#preamble)
+* [Base Scene Description](#base-scene-description-changes)
+* [Camera](#camera-changes)
+* [Film](#film-changes)
+
 ## Preamble
 This is not meant to be the official document representing the changes between pbrt-v3 and pbrt-v4, I'll leave that to Matt's much more capable hands. These are my notes during the process of updating an exporter from v3 to v4. I am making these public to aid others in the transition until a formal page is created by Matt. The changes listed are deduced from reading through the source code of https://github.com/mmp/pbrt-v4. As pbrt-v4 is still an early release and changing rapidly expect these notes to be out of sync at times. When in doubt, trust the code! :)
-
-## Table of Contents
-* [Base Scene Description Changes](#base-scene-description-changes)
-* [Camera Updates](#camera)
-
 
 ### Updating an exporter while the interface is still undergoing changes?
 Yup, I'm an idiot. But its exciting to follow the developments and try out the changes!
@@ -17,8 +18,7 @@ Yup, I'm an idiot. But its exciting to follow the developments and try out the c
   * pbrt-v3 `"bool parm" ["true"]`
   * pbrt-v4 `"bool parm" [true]`
 
-<a name="camera"></a>
-## Camera Updates
+## Camera Changes
 ### EnvironmentCamera is now SphericalCamera
 * Declaration is now "spherical" (was "environment")
 * Add `string mapping` parameter with possible values of
@@ -35,3 +35,14 @@ Yup, I'm an idiot. But its exciting to follow the developments and try out the c
   * square
   * pentagon
   * star
+## Film Changes
+### ImageFilm is now RGBFilm
+* Declaration is now "rgb" (was "image")
+* `xresolution` and `yresolution` defaults have changed to (1280x720) respectively.
+* `integer[4] pixelbounds` parameter added. If crop region is specificed it will override this. <br>
+(this previously lived on certain integrators)
+* `float maxsampleluminance` changed to `float maxcomponentvalue`
+* Add `bool savefp16` parameter for saving half images. (default true)
+### New GBufferFilm
+* Parameters are the same as RGBFilm
+
