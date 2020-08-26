@@ -5,3 +5,28 @@ This is not meant to be the official document representing the changes between p
 
 ### Updating an exporter while the interface is still undergoing changes?
 Yup, I'm an idiot. But its exciting to follow the developments and try out the changes!
+
+## Base Scene Description Changes
+* `WorldEnd` has been removed
+* bool types are no longer quoted
+  * pbrt-v3 `"bool parm" ["true"]`
+  * pbrt-v4 `"bool parm" [true]`
+
+
+## Camera Updates
+### EnvironmentCamera is now SphericalCamera
+* Declaration is now "spherical" (was "environment")
+* Add `string mapping` parameter with possible values of
+  * equiarea (default)
+  * equirect
+### PerspectiveCamera
+* Remove `float halffov` parameter (just use "fov" parameter)
+### RealisticCamera
+* Add `float dispersionfactor` parameter (defaults to 0)
+* Add `float scale` parameter (defaults to 1)
+* Add `string aperture` parameter (defaults to "")<br>
+  This parameter supports a image file path or one of the following built-ins
+  * gaussian
+  * square
+  * pentagon
+  * star
