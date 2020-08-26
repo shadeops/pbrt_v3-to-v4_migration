@@ -7,7 +7,8 @@
 * [Film](#film-changes)
 * [Filter](#filter-changes)
 * [Integrator](#integrator-changes)
-* [Light](#light_changes)
+* [Light](#light-changes)
+* [Texture](#texture-changes)
 * [Shape](#shape-changes)
 
 ## Preamble
@@ -166,6 +167,37 @@ The following options are supported
 * Remove `integer samples` parameter
 * Add "string filename" parameter (defaults to "")
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
+
+## Texture Changes
+### Remove UVTexture
+### Fbm Texture
+* Output is now only float, in pbrt-v3 it was float and spectrum.
+### ImageMap Texture
+* Add `float scale` parmeter, (defaults to 1)
+* Add new "octahedralsphere" mode to `string wrap`
+* Remove `bool trilinear` parameter
+* Add `string filter` parametr, options include
+  * point
+  * bilinear (default)
+  * trilinear
+  * ewa
+* Remove `bool gamma` parameter
+* Add `string encoding` parameter, this accepts either a builtin name or a "gamma value".<br>
+One of the following options can be specified. (The default is based on the file extension of the texture.)
+  * linear
+  * sRGB
+  * gamma float_value
+### Marble Texture
+* Output is now only spectrum, in pbrt-v3 it was float and spectrum
+### Scale Texture
+* `texture tex1` is now just `texture tex`
+* `texture tex2` has been replaced with `float scale` (defaults to 1)
+### Windy Texture
+* Output is now only float, in pbrt-v3 it was float and spectrum.
+### Wrinkled Texture
+* Output is now only float, in pbrt-v3 it was float and spectrum.
+
+
 
 ## Shape Changes
 ### Shape Removals
