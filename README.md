@@ -15,6 +15,9 @@ Yup, I'm an idiot. But its exciting to follow the developments and try out the c
 
 ## Base Scene Description Changes
 * `WorldEnd` has been removed
+* New `ColorSpace "name"` graphics state Attribute(?)<br>
+Sets the ColorSpace to be "name" which defines the color space of spectrum parameters. Accepts the following builtin names -
+ * todo
 * bool types are no longer quoted
   * pbrt-v3 `"bool parm" ["true"]`
   * pbrt-v4 `"bool parm" [true]`
@@ -55,3 +58,24 @@ Yup, I'm an idiot. But its exciting to follow the developments and try out the c
 ### Gaussian Filter
 * `float xradius` and `float yradius` defaults are now 1.5
 * `float alpha` is now `float sigma` default is 0.5
+
+## Sampler Changes
+### Remove MaxMinDist Sampler
+### Remove 02Sequence Sampler
+### Sobol Sampler
+* Add `string randomization` parameter with the following options
+ * none
+ * owen (default)
+ * cranleypatternson
+ * xor
+ ### New PaddedSobol Sampler
+ * Declared with "paddedsobol"
+ * This has the same parameters as the Sobol Sampler
+ ### Stratified Sampler
+ * Remove `integer dimensions` parameter
+ ### Halton Sampler
+ * Remove `bool samplepixelcenter` parameter
+ ### New PMJ02BN Sampler
+ * Declared with "pmj02bn"
+ * Has `integer pixelsamples` parameter (defaults to 16)
+ 
