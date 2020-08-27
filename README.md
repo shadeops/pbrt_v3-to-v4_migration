@@ -355,7 +355,7 @@ This was previously the Heterogeneous Medium in pbrt-v3
   * `point3 p0` defaults to (0,0,0)
   * `point3 p1` defaults to (1,1,1)  
 #### New NanoVDB Medium
-* Declare with "nanovdb"
+* Declare with "nanovdb"<br>
 Looks for fields within the VDB of the name "density" and "temperature"
 * Parameters include:
   * General Medium parameters described above
