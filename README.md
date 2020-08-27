@@ -8,6 +8,7 @@
 * [Filter](#filter-changes)
 * [Integrator](#integrator-changes)
 * [Light](#light-changes)
+* [Material](#material-changes)
 * [Texture](#texture-changes)
 * [Shape](#shape-changes)
 
