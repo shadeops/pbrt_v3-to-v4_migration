@@ -11,6 +11,7 @@
 * [Material](#material-changes)
 * [Texture](#texture-changes)
 * [Shape](#shape-changes)
+* [Medium](#medium-changes)
 
 ## Preamble
 This is not meant to be the official document representing the changes between pbrt-v3 and pbrt-v4, I'll leave that to Matt's much more capable hands. These are my notes during the process of updating an exporter from v3 to v4. I am making these public to aid others in the transition until a formal page is created by Matt. The changes listed are deduced from reading through the source code of https://github.com/mmp/pbrt-v4. As pbrt-v4 is still an early release and changing rapidly expect these notes to be out of sync at times. When in doubt, trust the code! :)
@@ -320,3 +321,45 @@ One of the following options can be specified. (The default is based on the file
 * Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
 
+## Medium Changes
+#### Homogeneous Grid
+* New `spectrum Le` parameter
+#### General Mediums
+Mediums with a varying medium now have a common interface to define scattering properties. These parameters include:
+* `string preset` default ("")<br>
+*The list of presets scattering properties has not changed since pbrt-v3*
+* `spectrum sigma_a` defaults to (0.0011, 0.0024, 0.014)
+* `spectrum sigma_s` defaults to (2.55, 3.21, 3.77)
+* `float scale` defaults to 1.0
+* `float g` defaults to 0.0
+#### New Uniform Medium
+This was previously the Heterogeneous Medium in pbrt-v3
+* Declare with "uniformgrid"
+* Parameters include:
+  * General Medium parameters described above
+  * `float[]|rgb[] density`
+  * `integer nx` defaults to 1
+  * `integer ny` defaults to 1
+  * `integer nz` defaults to 1
+  * `spectrum Le` defaults to 0
+  * `float[] Lescale`
+  * `point3 p0` defaults to (0,0,0)
+  * `point3 p1` defaults to (1,1,1)
+#### New Cloud Medium
+* Declare with "cloud"
+* Parameters include:
+  * General Medium parameters described above
+  * `float density` defaults to 1
+  * `float wispiness` defaults to 1
+  * `float extent` defauts to 1
+  * `point3 p0` defaults to (0,0,0)
+  * `point3 p1` defaults to (1,1,1)  
+#### New NanoVDB Medium
+* Declare with "nanovdb"
+Looks for fields within the VDB of the name "density" and "temperature"
+* Parameters include:
+  * `string filename` defaults to ""
+  * `float LeScale` defaults to 1.0
+  * `float temperaturecutoff` defaults to 0.0
+  * `float temperaturescale` defaults to 1.0
+ 
