@@ -75,22 +75,22 @@ This sets some global options including
 ## Sampler Changes
 #### Remove MaxMinDist Sampler
 #### Remove 02Sequence Sampler
+#### New PMJ02BN Sampler
+ * Declared with "pmj02bn"
+ * Has `integer pixelsamples` parameter (defaults to 16)
+#### New PaddedSobol Sampler
+ * Declared with "paddedsobol"
+ * This has the same parameters as the Sobol Sampler
 #### Sobol Sampler
 * Add `string randomization` parameter with the following options
  * none
  * owen (default)
  * cranleypatternson
  * xor
- #### New PaddedSobol Sampler
- * Declared with "paddedsobol"
- * This has the same parameters as the Sobol Sampler
- #### Stratified Sampler
+#### Stratified Sampler
  * Remove `integer dimensions` parameter
- #### Halton Sampler
+#### Halton Sampler
  * Remove `bool samplepixelcenter` parameter
- #### New PMJ02BN Sampler
- * Declared with "pmj02bn"
- * Has `integer pixelsamples` parameter (defaults to 16)
 
 ## Integrator Changes
 #### General
@@ -98,6 +98,21 @@ This sets some global options including
 * Default integrator is now  VolumePath
 #### Remove Whitted Integrator
 #### Remove DirectLighting Integrator
+#### New LightPath Integrator
+* Declared with "lightpath"
+* Has `integer maxdepth` parameter (defaults to 5)
+#### New RandomWalk Integrator
+* Declared with "randomwalk"
+* Has `integer maxdepth` parameter (defaults to 5)
+#### New SimplePath Integrator
+* Declared with "simplepath"
+* New parameters include
+  * `integer maxdepth` (defaults to 5)
+  * `bool samplelights` (defaults to true)
+  * `bool samplebsdf` (defaults to true)
+#### New SimpleVolPath Integrator
+* Declared with "simplevolapath"
+* Has `integer maxdepth` parameter (defaults to 5)
 #### Rename AO Integrator
 * Type name is now "ambientocclusion", previously it was "ao"
 * Remove `integer maxsamples` parameter
@@ -110,12 +125,6 @@ The following options are supported
   * bvh
   * exhaustive *(new)*
 * Add `bool regularize` parameter (defaults to false)
-#### New LightPath Integrator
-* Declared with "lightpath"
-* Has `integer maxdepth` parameter (defaults to 5)
-### New RandomWalk Integrator
-* Declared with "randomwalk"
-* Has `integer maxdepth` parameter (defaults to 5)
 #### MLT Integrator
 * Add `bool regularize` parameter (defaults to false)
 #### Path Integrator
@@ -126,15 +135,6 @@ The following options are supported
   * bvh (default)
   * exhaustive *(new)*
 * Add `bool regularize` parameter (defaults to false)
-#### New SimplePath Integrator
-* Declared with "simplepath"
-* New parameters include
-  * `integer maxdepth` (defaults to 5)
-  * `bool samplelights` (defaults to true)
-  * `bool samplebsdf` (defaults to true)
-#### New SimpleVolPath Integrator
-* Declared with "simplevolapath"
-* Has `integer maxdepth` parameter (defaults to 5)
 #### SPPM Integrator
 * Add `integer seed` parameter (defaults to 0)<br>
 (This does **not** lookup the seed value stored in `Options`)
@@ -168,6 +168,103 @@ The following options are supported
 * Add "string filename" parameter (defaults to "")
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 
+## Material Changes
+#### General Changes
+* `float texture bumpmap` has been renamed to `float texture displacement`
+#### Following Materials Have Been Removed
+* Uber
+* Translucent
+* Substrate
+* Plastic
+* Mirror
+* Metal
+* Matte
+* KdSubsurface
+* Glass
+* Fourier
+* Disney
+#### CoatedConductor Material
+Type name: "coatedconductor"
+##### Parameters:
+* displacement (float texture)
+* interface.eta (float texture)
+* thickness (float texture)
+* interface.roughness (float texture)
+* interface.uroughness (float texture)
+* interface.vroughness (float texture)
+* conductor.eta (spectrum texture)
+* conductor.k (spectrum texture)
+* conductor.roughness (float texture)
+* conductor.uroughness (float texture)
+* conductor.vroughness (float texture)
+* remaproughness (bool)
+* maxdepth (integer)
+* nsamples (integer)
+#### CoatedDiffuse Material
+Type name: "coateddiffuse"
+##### Parameters:
+* displacement (float texture)
+* reflectance (spectrum texture)
+* eta (float texture)
+* thickness (float texture)
+* roughness (float texture)
+* uroughness (float texture)
+* vroughness (float texture)
+* remaproughness (bool)
+* maxdepth (integer)
+* nsamples (integer)
+* twosided (bool)
+#### Conductor Material
+Type name: "conductor"
+##### Parameters:
+* displacement (float texture)
+* eta (spectrum texture)
+* k (spectrum texture)
+* roughness (float texture)
+* uroughness (float texture)
+* vroughness (float texture)
+* remaproughness (bool)
+#### Diffuse Material
+Type name: "diffuse"
+##### Parameters:
+* displacement (float texture)
+* reflectance (spectrum texture)
+* sigma (float texture)
+#### DiffuseTransmission Material
+Type name: "diffusetransmission"
+##### Parameters:
+* displacement (float texture)
+* reflectance (spectrum texture)
+* transmission (spectrum texture)
+* sigma (float texture)
+* scale (float)
+#### Measured Material
+Type name: "measured"
+##### Parameters:
+* displacement (float texture)
+* filename (string)
+#### ThinDielectric Material
+Type name: "thindielectric"
+##### Parameters:
+* displacement (float texture)
+* eta (float/spectrum texture)
+#### Dielectric Material
+Type name: "dielectric"
+##### Parameters:
+* displacement (float texture)
+* eta (float/spectrum texture)
+* roughness (float texture)
+* uroughness (float texture)
+* vroughness (float texture)
+* remaproughness (bool)
+#### Subsurface Material
+* Remove `spectrum Kr` parameter
+* Remove `spectrum Kt` parameter
+* Add `spectrum texture reflectance` parameter
+* Add `spectrum texture mfp` parameter
+* Add `float g` parameter
+* Add `float texture roughness` parameter
+
 ## Texture Changes
 #### Remove UVTexture
 #### Fbm Texture
@@ -196,8 +293,6 @@ One of the following options can be specified. (The default is based on the file
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 #### Wrinkled Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
-
-
 
 ## Shape Changes
 #### Shape Removals
