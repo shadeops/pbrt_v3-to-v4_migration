@@ -265,6 +265,8 @@ Type name: "dielectric"
 * Add `spectrum texture mfp` parameter
 * Add `float g` parameter
 * Add `float texture roughness` parameter
+#### Mix Material
+* Change `spectrum texture amount` to `float texture amount`
 
 ## Texture Changes
 #### Remove UVTexture
