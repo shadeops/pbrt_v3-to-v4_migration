@@ -358,6 +358,7 @@ This was previously the Heterogeneous Medium in pbrt-v3
 * Declare with "nanovdb"
 Looks for fields within the VDB of the name "density" and "temperature"
 * Parameters include:
+  * General Medium parameters described above
   * `string filename` defaults to ""
   * `float LeScale` defaults to 1.0
   * `float temperaturecutoff` defaults to 0.0
