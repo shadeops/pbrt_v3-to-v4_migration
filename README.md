@@ -304,6 +304,15 @@ One of the following options can be specified. (The default is based on the file
 * NURBS
 * Hyperboloid
 * Paraboloid
+#### New Bilinear Patch Mesh
+* Declared with "bilinearmesh"
+* Parameters:
+  * `point3[] P`
+  * `integer[] indices`
+  * `point2[] uv` optional
+  * `normal3[] N` optional
+  * `integer[] faceIndices` optional
+  * `string emissionfilename` optional
 #### Triangle Shape
 * Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
