@@ -80,7 +80,7 @@ This sets some global options including
 #### New PMJ02BN Sampler
  * Declared with "pmj02bn"
  * Has `integer pixelsamples` parameter (defaults to 16)
-#### New PaddedSobol Sampler
+#### 02Sequence Sampler has become the more aptly named PaddedSobol Sampler
  * Declared with "paddedsobol"
  * This has the same parameters as the Sobol Sampler
 #### Sobol Sampler
