@@ -156,9 +156,9 @@ The following options are supported
 #### Goniometric Light
 * `string  mapname` is now `string filename`
 #### Infinite Light
-* Add `point[4] portal` parameter
 * Remove `integer samples` parameter
 * `string  mapname` is now `string filename`
+* Add `point[4] portal` parameter (only supported when using `string filename`
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 #### Projection Light
 * `string  mapname` is now `string filename`
