@@ -299,6 +299,8 @@ One of the following options can be specified. (The default is based on the file
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 
 ## Shape Changes
+#### General
+All shapes now support an `float texture alpha` parameter.
 #### Shape Removals
 * Cone
 * HeightField
@@ -315,10 +317,9 @@ One of the following options can be specified. (The default is based on the file
   * `integer[] faceIndices` optional
   * `string emissionfilename` optional
 #### Triangle Shape
-* Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
+* Change uv parameter from `float[] uv` to `point2[] uv`
 #### Ply Shape
-* Remove `texture alpha` parameter
 * Remove `texture shadowalpha` parameter
 
 ## Medium Changes
