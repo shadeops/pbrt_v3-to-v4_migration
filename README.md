@@ -67,11 +67,11 @@ This sets some global options including
 #### General Film Changes
 * Currently both RGBFilm and GBufferFilm have the same parameters.
 * New Sensor Parameters:
-  * `float exposuretime` defaults to 1
   * `float fnumber` defaults to 1
   * `float iso` defaults to 100
   * `float c` defaults to 100*PI
-  * `float whitebalance` defaults to 6500
+  * `float whitebalance` defaults to 0<br>
+*If your whitebalance is 0, and your sensor is something other than cie1931, pbrt will automatically default the sensor to 6500*
   * `string sensor` defaults to "cie1931"<br>
 The sensor parameter accepts any of the following camera sensors.
 
