@@ -118,22 +118,22 @@ The sensor parameter accepts any of the following camera sensors.
 #### Remove MaxMinDist Sampler
 #### Remove 02Sequence Sampler
 #### New PMJ02BN Sampler
- * Declared with "pmj02bn"
- * Parameters:
-   * `integer pixelsamples` parameter (defaults to 16)
+* Declared with "pmj02bn"
+* Parameters:
+  * `integer pixelsamples` parameter (defaults to 16)
 #### 02Sequence Sampler has become the more aptly named PaddedSobol Sampler
- * Declared with "paddedsobol"
- * This has the same parameters as the Sobol Sampler
+* Declared with "paddedsobol"
+* This has the same parameters as the Sobol Sampler
 #### Sobol Sampler
 * New `string randomization` parameter with the following options
- * none
- * owen (default)
- * cranleypatternson
- * xor
+  * none
+  * owen (default)
+  * cranleypatternson
+  * xor
 #### Stratified Sampler
- * Remove `integer dimensions` parameter
+* Remove `integer dimensions` parameter
 #### Halton Sampler
- * Remove `bool samplepixelcenter` parameter
+* Remove `bool samplepixelcenter` parameter
 
 ## Integrator Changes
 #### General
