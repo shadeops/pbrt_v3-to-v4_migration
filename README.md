@@ -213,7 +213,7 @@ The following options are supported
 * `float fov` default has changed from 45 to 90
 #### Diffuse AreaLight
 * Remove `integer samples` parameter
-* New "string filename" parameter (defaults to "")
+* New "string filename" parameter defaults to ""
 * New `float power` parameter defaults to -1
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 #### Distant Light
@@ -237,84 +237,84 @@ The following options are supported
 #### CoatedConductor Material
 Type name: "coatedconductor"
 ##### Parameters:
-* displacement (float texture)
-* interface.eta (float texture)
-* thickness (float texture)
-* interface.roughness (float texture)
-* interface.uroughness (float texture)
-* interface.vroughness (float texture)
-* conductor.eta (spectrum texture)
-* conductor.k (spectrum texture)
-* conductor.roughness (float texture)
-* conductor.uroughness (float texture)
-* conductor.vroughness (float texture)
-* remaproughness (bool)
-* maxdepth (integer)
-* nsamples (integer)
+* `float texture displacement` defaults to null
+* `float interface.eta` defaults to 1.5
+* `float texture thickness` defaults to 0.01
+* `float texture interface.roughness` defaults to 0
+* `float texture interface.uroughness` defaults to `interface.roughness`
+* `float texture interface.vroughness` defaults to `interface.roughness`
+* `spectrum texture conductor.eta` defaults to "metal-Cu-eta"
+* `spectrum texture conductor.k` defaults to "metal-Cu-k"
+* `float texture conductor.roughness` defaults to 0
+* `float texture conductor.uroughness` defaults to `conductor.roughness`
+* `float texture conductor.vroughness` defaults to `conductor.roughness`
+* `bool remaproughness` defaults to true
+* `integer maxdepth` defaults to 10
+* `integer nsamples` defaults to 1
 #### CoatedDiffuse Material
 Type name: "coateddiffuse"
 ##### Parameters:
-* displacement (float texture)
-* reflectance (spectrum texture)
-* eta (float texture)
-* thickness (float texture)
-* roughness (float texture)
-* uroughness (float texture)
-* vroughness (float texture)
-* remaproughness (bool)
-* maxdepth (integer)
-* nsamples (integer)
-* twosided (bool)
+* `float texture displacement` defaultsto null
+* `spectrum texture reflectance` defaults to 0.5
+* `float texture eta` default 1.5
+* `float texture thickness` default 0.01
+* `float texture roughness` defaults to 0
+* `float texture uroughness` defaults to `roughness`
+* `float texture vroughness` defaults to `roughness`
+* `bool remaproughness` defaults to true
+* `integer maxdepth` defaults to 10
+* `integer nsamples` defaults to 1
+* `bool twosided` defaults to true
 #### Conductor Material
 Type name: "conductor"
 ##### Parameters:
-* displacement (float texture)
-* eta (spectrum texture)
-* k (spectrum texture)
-* roughness (float texture)
-* uroughness (float texture)
-* vroughness (float texture)
-* remaproughness (bool)
+* `float texture displacement` defaults to null
+* `spectrum texture eta` defaults to "metal-Cu-eta"
+* `spectrum texture k` defaults to "metal-Cu-k"
+* `float texture roughness` defaults to 0
+* `float texture uroughness` defaults to `roughness`
+* `float texture vroughness` defaults to `roughness`
+* `bool remaproughness` defaults to true
 #### Diffuse Material
 Type name: "diffuse"
 ##### Parameters:
-* displacement (float texture)
-* reflectance (spectrum texture)
-* sigma (float texture)
+* `float texture displacement` defaults to null
+* `spectrum texture reflectance` defaults to 0.5
+* `float texture sigma` defaults to 0
 #### DiffuseTransmission Material
 Type name: "diffusetransmission"
 ##### Parameters:
-* displacement (float texture)
-* reflectance (spectrum texture)
-* transmission (spectrum texture)
-* sigma (float texture)
-* scale (float)
+* `float texture displacement` defaults to null
+* `spectrum texture reflectance` defaults to 0.25
+* `spectrum texture transmittance` defaults to 0.25
+* `float texture sigma` defaults to 0
+* `float scale` defaults to 1
 #### Measured Material
 Type name: "measured"
 ##### Parameters:
-* displacement (float texture)
-* filename (string)
+* `float texture displacement` defaults to null
+* `string filename` defaults to ""
 #### ThinDielectric Material
 Type name: "thindielectric"
 ##### Parameters:
-* displacement (float texture)
-* eta (float/spectrum texture)
+* `float texture displacement` defaults to null
+* `float|spectrum texture eta` defaults to 1.5
 #### Dielectric Material
 Type name: "dielectric"
 ##### Parameters:
-* displacement (float texture)
-* eta (float/spectrum texture)
-* roughness (float texture)
-* uroughness (float texture)
-* vroughness (float texture)
-* remaproughness (bool)
+* `float texture displacement` defaults to null
+* `float|spectrum texture eta` defaults to 1.5
+* `float texture roughness` defaults to 0
+* `float texture uroughness` defaults to `roughness`
+* `float texture vroughness` defaults to `roughness`
+* `bool remaproughness` defaults to true
 #### Subsurface Material
 * Remove `spectrum Kr` parameter
 * Remove `spectrum Kt` parameter
-* New `spectrum texture reflectance` parameter
-* New `spectrum texture mfp` parameter
-* New `float g` parameter
-* New `float texture roughness` parameter
+* New `spectrum texture reflectance` defaults to 1
+* New `spectrum texture mfp` defaults to 1
+* New `float g` defaults to 0
+* New `float texture roughness` defaults to 0
 #### Mix Material
 * Change `spectrum texture amount` to `float texture amount`
 
