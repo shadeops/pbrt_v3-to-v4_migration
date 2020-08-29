@@ -116,7 +116,6 @@ The sensor parameter accepts any of the following camera sensors.
 
 ## Sampler Changes
 #### Remove MaxMinDist Sampler
-#### Remove 02Sequence Sampler
 #### New PMJ02BN Sampler
 * Declared with "pmj02bn"
 * Parameters:
