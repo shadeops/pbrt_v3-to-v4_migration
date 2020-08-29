@@ -31,7 +31,10 @@ A few emoji are used to call attention for the reasons listed below-
 * :exclamation:`WorldEnd` has been removed
 * New `ColorSpace "name"` graphics state Attribute(?)<br>
 Sets the ColorSpace to be "name" which defines the color space of spectrum parameters. Accepts the following builtin names -
-  * todo
+  * srgb (default)
+  * dci-p3
+  * rec2020
+  * aces2065-1
 * New `Option "name" "value"` call added<br>
 This sets some global options including
   * `bool disablepixeljitter` (false)
@@ -65,6 +68,7 @@ This sets some global options including
 
 ## Film Changes
 #### General Film Changes
+* Default film is "rgb"
 * Currently both RGBFilm and GBufferFilm have the same parameters.
 * New Sensor Parameters:
   * `float fnumber` defaults to 1
@@ -115,6 +119,7 @@ The sensor parameter accepts any of the following camera sensors.
 * `float alpha` is now `float sigma` default is 0.5
 
 ## Sampler Changes
+The default sampler is "pmj02bn"
 #### Remove MaxMinDist Sampler
 #### New PMJ02BN Sampler
 * Declared with "pmj02bn"
