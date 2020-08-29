@@ -21,8 +21,14 @@ This is not meant to be the official document representing the changes between p
 ### Updating an exporter while the interface is still undergoing changes?
 Yup, I'm an idiot. But its exciting to follow the developments and try out the changes!
 
+### Legend
+A few emoji are used to call attention for the reasons listed below-
+| Icon | Reasoning |
+|----|----|
+|:exclamation: | Significant change to scene description structure |
+
 ## Base Scene Description Changes
-* `WorldEnd` has been removed
+* :exclamation:`WorldEnd` has been removed
 * New `ColorSpace "name"` graphics state Attribute(?)<br>
 Sets the ColorSpace to be "name" which defines the color space of spectrum parameters. Accepts the following builtin names -
   * todo
@@ -35,7 +41,7 @@ This sets some global options including
   * `integer seed` (0)
   * `bool forcediffuse` (false)
   * `bool pixelstats` (false)
-* bool types are no longer quoted
+* :exclamation: bool types are no longer quoted
   * pbrt-v3 `"bool parm" ["true"]`
   * pbrt-v4 `"bool parm" [true]`
 
@@ -362,7 +368,7 @@ All shapes now support an `float texture alpha` parameter.
   * `string emissionfilename` optional
 #### Triangle Shape
 * Remove `texture shadowalpha` parameter
-* Change uv parameter from `float[] uv` to `point2[] uv`
+* :exclamation:Change uv parameter from `float[] uv` to `point2[] uv`
 #### Ply Shape
 * Remove `texture shadowalpha` parameter
 
@@ -405,7 +411,8 @@ Looks for fields within the VDB of the name "density" and "temperature"
 * Parameters:
   * General Medium parameters described above
   * `string filename` defaults to ""
-  * `float LeScale` defaults to 1.0
+  * :exclamation:`float LeScale` defaults to 1.0<br>
+  Currently uniform group has a similar parameter with different case `float Lescale`
   * `float temperaturecutoff` defaults to 0.0
   * `float temperaturescale` defaults to 1.0
  
