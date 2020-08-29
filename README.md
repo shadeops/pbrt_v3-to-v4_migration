@@ -143,35 +143,36 @@ The sensor parameter accepts any of the following camera sensors.
 #### New LightPath Integrator
 * Declared with "lightpath"
 * Parameters:
-  *`integer maxdepth` parameter (defaults to 5)
+  * `integer maxdepth` defaults to 5
 #### New RandomWalk Integrator
 * Declared with "randomwalk"
 * Parameters:
-  *`integer maxdepth` parameter (defaults to 5)
+  * `integer maxdepth` defaults to 5
 #### New SimplePath Integrator
 * Declared with "simplepath"
-* Parameters include
-  * `integer maxdepth` (defaults to 5)
-  * `bool samplelights` (defaults to true)
-  * `bool samplebsdf` (defaults to true)
+* Parameters:
+  * `integer maxdepth` defaults to 5
+  * `bool samplelights` defaults to true
+  * `bool samplebsdf` defaults to true
 #### New SimpleVolPath Integrator
 * Declared with "simplevolapath"
 * Parameters:
-  * `integer maxdepth` parameter (defaults to 5)
+  * `integer maxdepth` defaults to 5
 #### Rename AO Integrator
 * Type name is now "ambientocclusion", previously it was "ao"
 * Remove `integer maxsamples` parameter
-* New `float maxdistance` parameter (defaults to Inf)
+* New `float maxdistance` parameter, defaults to Inf
 #### BDPT Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
   * uniform
-  * power (default)
+  * :exclamation: power (default)<br>
+  *BDPT's lightsampler default is different from Path/VolPath*
   * bvh
   * exhaustive *(new)*
-* New `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter, defaults to false
 #### MLT Integrator
-* New `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter, defaults to false
 #### Path Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
@@ -179,11 +180,11 @@ The following options are supported
   * power
   * bvh (default)
   * exhaustive *(new)*
-* New `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter, defaults to false
 #### SPPM Integrator
-* New `integer seed` parameter (defaults to 0)<br>
+* New `integer seed` parameter, defaults to 0<br>
 (This does **not** lookup the seed value stored in `Options`)
-* New `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter, defaults to false
 #### VolPath Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
@@ -191,7 +192,7 @@ The following options are supported
   * power
   * bvh (default)
   * exhaustive *(new)*
-* New `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter, defaults to false
 
 ## Light Changes
 #### All Lights
@@ -202,22 +203,22 @@ The following options are supported
 #### Infinite Light
 * Remove `integer samples` parameter
 * `string  mapname` is now `string filename`
-* New `float illuminance` parameter defaults to -1
-* New `point[4] portal` parameter (only supported when using `string filename`)
+* New `float illuminance` parameter, defaults to -1
+* New `point[4] portal` parameter, (only supported when using `string filename`)
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 #### Projection Light
 * `string  mapname` is now `string filename`
 * Remove `spectrum I` parameter<br>
-* New `float power` parameter defaults to -1
 *Spectrum values come only from the supplied image*
+* New `float power` parameter, defaults to -1
 * `float fov` default has changed from 45 to 90
 #### Diffuse AreaLight
 * Remove `integer samples` parameter
-* New "string filename" parameter defaults to ""
-* New `float power` parameter defaults to -1
+* New "string filename" parameter, defaults to ""
+* New `float power` parameter, defaults to -1
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 #### Distant Light
-* New `float illuminance` parameter defaults to -1
+* New `float illuminance` parameter, defaults to -1
 
 ## Material Changes
 #### General Changes
@@ -323,7 +324,7 @@ Type name: "dielectric"
 #### Fbm Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 #### ImageMap Texture
-* New `float scale` parmeter, (defaults to 1)
+* New `float scale` parmeter, defaults to 1
 * New "octahedralsphere" mode for `string wrap`
 * Remove `bool trilinear` parameter
 * New `string filter` parameter, options include
@@ -341,7 +342,7 @@ One of the following options can be specified. (The default is based on the file
 * Output is now only spectrum, in pbrt-v3 it was float and spectrum
 #### Scale Texture
 * `texture tex1` is now just `texture tex`
-* `texture tex2` has been replaced with `float scale` (defaults to 1)
+* `texture tex2` has been replaced with `float scale`, defaults to 1
 #### Windy Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 #### Wrinkled Texture
@@ -373,7 +374,7 @@ All shapes now support an `float texture alpha` parameter.
 
 ## Medium Changes
 #### Homogeneous Grid
-* New `spectrum Le` parameter defaults to 0
+* New `spectrum Le` parameter, defaults to 0
 #### General Mediums
 Mediums with a varying medium now have a common interface to define scattering properties. These parameters include:
 * `string preset` default ("")<br>
