@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up this commit- https://github.com/mmp/pbrt-v4/commit/4473987 
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/commit/4473987 
 
 ## Table of Contents
 * [Preamble](#preamble)
