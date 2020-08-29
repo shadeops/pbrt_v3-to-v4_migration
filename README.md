@@ -1,5 +1,7 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
+This list is currently based off the changes made up this commit- https://github.com/mmp/pbrt-v4/commit/4473987 
+
 ## Table of Contents
 * [Preamble](#preamble)
 * [Base Scene Description](#base-scene-description-changes)
@@ -40,15 +42,15 @@ This sets some global options including
 ## Camera Changes
 #### EnvironmentCamera is now SphericalCamera
 * Declaration is now "spherical" (was "environment")
-* Add `string mapping` parameter with possible values of
+* New `string mapping` parameter with possible values of
   * equiarea (default)
   * equirect
 #### PerspectiveCamera
 * Remove `float halffov` parameter (just use "fov" parameter)
 #### RealisticCamera
-* Add `float dispersionfactor` parameter (defaults to 0)
-* Add `float scale` parameter (defaults to 1)
-* Add `string aperture` parameter (defaults to "")<br>
+* New `float dispersionfactor` parameter (defaults to 0)
+* New `float scale` parameter (defaults to 1)
+* New `string aperture` parameter (defaults to "")<br>
   This parameter supports a image file path or one of the following built-ins
   * gaussian
   * square
@@ -56,13 +58,45 @@ This sets some global options including
   * star
 
 ## Film Changes
+#### General Film Changes
+* Currently both RGBFilm and GBufferFilm have the same parameters.
+* New Sensor Parameters:
+  * `float exposuretime` defaults to 1
+  * `float fnumber` defaults to 1
+  * `float iso` defaults to 100
+  * `float c` defaults to 100*PI
+  * `float whitebalance` defaults to 6500
+  * `string sensor` defaults to "cie1931"<br>
+The sensor parameter accepts any of the following camera sensors.
+
+| Parm Value | Common Name |
+| ---- | ---- |
+| cie1931 | CIE 1931 |
+|canon_eos_100d | Canon EOS 100D|
+|canon_eos_1dx_mkii | Canon EOS 1D X Mark II|
+|canon_eos_200d | Canon EOS-200D|
+|canon_eos_200d_mkii | Canon EOS 200D Mark II|
+|canon_eos_5d | Canon EOS 5D|
+|canon_eos_5d_mkii | Canon EOS 5D Mark II|
+|canon_eos_5d_mkiii | Canon EOS 5D Mark III|
+|canon_eos_5d_mkiv | Canon EOS 5D Mark IV|
+|canon_eos_5ds | Canon EOS 5DS|
+|canon_eos_m | Canon EOS M|
+|hasselblad_l1d_20c | Hasselblad L1D-20C|
+|nikon_d810 | Nikon D810|
+|nikon_d850 | Nikon D850|
+|sony_ilce_6400 | Sony A6400|
+|sony_ilce_7m3 | Sony A7 Mark III|
+|sony_ilce_7rm3 | Sony A7R Mark III|
+|sony_ilce_9 | Sony A9|
+
 #### ImageFilm is now RGBFilm
 * Declaration is now "rgb" (was "image")
 * `xresolution` and `yresolution` defaults have changed to (1280x720) respectively.
 * `integer[4] pixelbounds` parameter added. If crop region is specificed it will override this. <br>
 (this previously lived on certain integrators)
 * `float maxsampleluminance` changed to `float maxcomponentvalue`
-* Add `bool savefp16` parameter for saving half images. (default true)
+* New `bool savefp16` parameter for saving half images. (default true)
 #### New GBufferFilm
 * Parameters are the same as RGBFilm
 
@@ -79,12 +113,13 @@ This sets some global options including
 #### Remove 02Sequence Sampler
 #### New PMJ02BN Sampler
  * Declared with "pmj02bn"
- * Has `integer pixelsamples` parameter (defaults to 16)
+ * Parameters:
+   * `integer pixelsamples` parameter (defaults to 16)
 #### 02Sequence Sampler has become the more aptly named PaddedSobol Sampler
  * Declared with "paddedsobol"
  * This has the same parameters as the Sobol Sampler
 #### Sobol Sampler
-* Add `string randomization` parameter with the following options
+* New `string randomization` parameter with the following options
  * none
  * owen (default)
  * cranleypatternson
@@ -102,23 +137,26 @@ This sets some global options including
 #### Remove DirectLighting Integrator
 #### New LightPath Integrator
 * Declared with "lightpath"
-* Has `integer maxdepth` parameter (defaults to 5)
+* Parameters:
+  *`integer maxdepth` parameter (defaults to 5)
 #### New RandomWalk Integrator
 * Declared with "randomwalk"
-* Has `integer maxdepth` parameter (defaults to 5)
+* Parameters:
+  *`integer maxdepth` parameter (defaults to 5)
 #### New SimplePath Integrator
 * Declared with "simplepath"
-* New parameters include
+* Parameters include
   * `integer maxdepth` (defaults to 5)
   * `bool samplelights` (defaults to true)
   * `bool samplebsdf` (defaults to true)
 #### New SimpleVolPath Integrator
 * Declared with "simplevolapath"
-* Has `integer maxdepth` parameter (defaults to 5)
+* Parameters:
+  * `integer maxdepth` parameter (defaults to 5)
 #### Rename AO Integrator
 * Type name is now "ambientocclusion", previously it was "ao"
 * Remove `integer maxsamples` parameter
-* Add `float maxdistance` parameter (defaults to Inf)
+* New `float maxdistance` parameter (defaults to Inf)
 #### BDPT Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
@@ -126,9 +164,9 @@ The following options are supported
   * power (default)
   * bvh
   * exhaustive *(new)*
-* Add `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter (defaults to false)
 #### MLT Integrator
-* Add `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter (defaults to false)
 #### Path Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
@@ -136,11 +174,11 @@ The following options are supported
   * power
   * bvh (default)
   * exhaustive *(new)*
-* Add `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter (defaults to false)
 #### SPPM Integrator
-* Add `integer seed` parameter (defaults to 0)<br>
+* New `integer seed` parameter (defaults to 0)<br>
 (This does **not** lookup the seed value stored in `Options`)
-* Add `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter (defaults to false)
 #### VolPath Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
@@ -148,27 +186,33 @@ The following options are supported
   * power
   * bvh (default)
   * exhaustive *(new)*
-* Add `bool regularize` parameter (defaults to false)
+* New `bool regularize` parameter (defaults to false)
 
 ## Light Changes
 #### All Lights
 * `spectrum scale` is now `float scale`
 #### Goniometric Light
 * `string  mapname` is now `string filename`
+* New `float power` parameter defaults to -1
 #### Infinite Light
 * Remove `integer samples` parameter
 * `string  mapname` is now `string filename`
-* Add `point[4] portal` parameter (only supported when using `string filename`
+* New `float illuminance` parameter defaults to -1
+* New `point[4] portal` parameter (only supported when using `string filename`)
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
 #### Projection Light
 * `string  mapname` is now `string filename`
 * Remove `spectrum I` parameter<br>
+* New `float power` parameter defaults to -1
 *Spectrum values come only from the supplied image*
 * `float fov` default has changed from 45 to 90
 #### Diffuse AreaLight
 * Remove `integer samples` parameter
-* Add "string filename" parameter (defaults to "")
+* New "string filename" parameter (defaults to "")
+* New `float power` parameter defaults to -1
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
+#### Distant Light
+* New `float illuminance` parameter defaults to -1
 
 ## Material Changes
 #### General Changes
@@ -262,10 +306,10 @@ Type name: "dielectric"
 #### Subsurface Material
 * Remove `spectrum Kr` parameter
 * Remove `spectrum Kt` parameter
-* Add `spectrum texture reflectance` parameter
-* Add `spectrum texture mfp` parameter
-* Add `float g` parameter
-* Add `float texture roughness` parameter
+* New `spectrum texture reflectance` parameter
+* New `spectrum texture mfp` parameter
+* New `float g` parameter
+* New `float texture roughness` parameter
 #### Mix Material
 * Change `spectrum texture amount` to `float texture amount`
 
@@ -274,16 +318,16 @@ Type name: "dielectric"
 #### Fbm Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 #### ImageMap Texture
-* Add `float scale` parmeter, (defaults to 1)
-* Add new "octahedralsphere" mode to `string wrap`
+* New `float scale` parmeter, (defaults to 1)
+* New "octahedralsphere" mode for `string wrap`
 * Remove `bool trilinear` parameter
-* Add `string filter` parametr, options include
+* New `string filter` parameter, options include
   * point
   * bilinear (default)
   * trilinear
   * ewa
 * Remove `bool gamma` parameter
-* Add `string encoding` parameter, this accepts either a builtin name or a "gamma value".<br>
+* New `string encoding` parameter, this accepts either a builtin name or a "gamma value".<br>
 One of the following options can be specified. (The default is based on the file extension of the texture.)
   * linear
   * sRGB
@@ -324,7 +368,7 @@ All shapes now support an `float texture alpha` parameter.
 
 ## Medium Changes
 #### Homogeneous Grid
-* New `spectrum Le` parameter
+* New `spectrum Le` parameter defaults to 0
 #### General Mediums
 Mediums with a varying medium now have a common interface to define scattering properties. These parameters include:
 * `string preset` default ("")<br>
@@ -336,19 +380,19 @@ Mediums with a varying medium now have a common interface to define scattering p
 #### New Uniform Medium
 This was previously the Heterogeneous Medium in pbrt-v3
 * Declare with "uniformgrid"
-* Parameters include:
+* Parameters:
   * General Medium parameters described above
   * `float[]|rgb[] density`
   * `integer nx` defaults to 1
   * `integer ny` defaults to 1
   * `integer nz` defaults to 1
   * `spectrum Le` defaults to 0
-  * `float[] Lescale`
+  * `float[] Lescale` defaults to 0
   * `point3 p0` defaults to (0,0,0)
   * `point3 p1` defaults to (1,1,1)
 #### New Cloud Medium
 * Declare with "cloud"
-* Parameters include:
+* Parameters:
   * General Medium parameters described above
   * `float density` defaults to 1
   * `float wispiness` defaults to 1
@@ -358,7 +402,7 @@ This was previously the Heterogeneous Medium in pbrt-v3
 #### New NanoVDB Medium
 * Declare with "nanovdb"<br>
 Looks for fields within the VDB of the name "density" and "temperature"
-* Parameters include:
+* Parameters:
   * General Medium parameters described above
   * `string filename` defaults to ""
   * `float LeScale` defaults to 1.0
