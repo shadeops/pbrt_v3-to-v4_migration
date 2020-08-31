@@ -355,7 +355,9 @@ One of the following options can be specified. (The default is based on the file
 
 ## Shape Changes
 #### General
-All shapes now support an `float texture alpha` parameter.
+* All shapes now support an `float texture alpha` parameter.
+* :exclamation: Shapes no longer support overriding of a Material's parameters as described here https://www.pbrt.org/fileformat-v3.html#materials
+
 #### Shape Removals
 * Cone
 * HeightField
