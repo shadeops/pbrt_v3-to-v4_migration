@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/8364444
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/ca0db69
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -257,6 +257,8 @@ Type name: "coatedconductor"
 * `bool remaproughness` defaults to true
 * `integer maxdepth` defaults to 10
 * `integer nsamples` defaults to 1
+* `float texture g` defaults to 0
+* `spectrum texture albedo` defaults to 0
 #### CoatedDiffuse Material
 Type name: "coateddiffuse"
 ##### Parameters:
@@ -270,6 +272,8 @@ Type name: "coateddiffuse"
 * `bool remaproughness` defaults to true
 * `integer maxdepth` defaults to 10
 * `integer nsamples` defaults to 1
+* `float texture g` defaults to 0
+* `spectrum texture albedo` defaults to 0
 * `bool twosided` defaults to true
 #### Conductor Material
 Type name: "conductor"
