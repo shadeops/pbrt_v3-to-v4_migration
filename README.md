@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/08f863d
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/e0d0393
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -52,13 +52,11 @@ This sets some global options including
 #### EnvironmentCamera is now SphericalCamera
 * Declaration is now "spherical" (was "environment")
 * New `string mapping` parameter with possible values of
-  * equiarea (default)
-  * equirect
+  * equalarea (default)
+  * equirectangle
 #### PerspectiveCamera
 * Remove `float halffov` parameter (just use "fov" parameter)
 #### RealisticCamera
-* New `float dispersionfactor` parameter (defaults to 0)
-* New `float scale` parameter (defaults to 1)
 * New `string aperture` parameter (defaults to "")<br>
   This parameter supports a image file path or one of the following built-ins
   * gaussian
