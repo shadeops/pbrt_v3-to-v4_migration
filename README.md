@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/e0d0393
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/e5cfdcc
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -388,8 +388,8 @@ One of the following options can be specified. (The default is based on the file
 Mediums with a varying medium now have a common interface to define scattering properties. These parameters include:
 * `string preset` default ("")<br>
 *The list of presets scattering properties has not changed since pbrt-v3*
-* `spectrum sigma_a` defaults to (0.0011, 0.0024, 0.014)
-* `spectrum sigma_s` defaults to (2.55, 3.21, 3.77)
+* `spectrum sigma_a` defaults to (1, 1, 1)
+* `spectrum sigma_s` defaults to (1, 1, 1)
 * `float scale` defaults to 1.0
 * `float g` defaults to 0.0
 #### New Uniform Medium
