@@ -44,12 +44,17 @@ This sets some global options including
   * `integer seed` (0)
   * `bool forcediffuse` (false)
   * `bool pixelstats` (false)
-* :exclamation: bool types are no longer quoted
-  * pbrt-v3 `"bool parm" ["true"]`
-  * pbrt-v4 `"bool parm" [true]`
-* :exclamation: spectrum blackbody parameters have changed, intensity is no longer specified
-  * pbrt-v3 `"blackbody parm" [6500 0.5]`
-  * pbrt-v4 `"blackbody parm" [6500]`
+* Type Changes
+  * :exclamation: bool types are no longer quoted
+    * pbrt-v3 `"bool parm" ["true"]`
+    * pbrt-v4 `"bool parm" [true]`
+  * :exclamation: spectrum type changes 
+    * spectrum blackbody parameters should no longer specify an intensity value
+      * pbrt-v3 `"blackbody parm" [6500 0.5]`
+      * pbrt-v4 `"blackbody parm" [6500]`
+    * spectrum xyz parameters are no longer supporter
+      * pbrt-v3 `"xyz parm" [ 0.2 0.5 0.8 ]`
+      * pbrt-v4 *not supported*
 
 ## Camera Changes
 #### EnvironmentCamera is now SphericalCamera
