@@ -333,6 +333,8 @@ Type name: "dielectric"
 * New `float texture roughness` defaults to 0
 #### Mix Material
 * Change `spectrum texture amount` to `float texture amount`
+* Remove `string namedmaterial1` and `string namedmaterial2`
+* Add `string[2] materials`
 
 ## Texture Changes
 #### Remove UVTexture
