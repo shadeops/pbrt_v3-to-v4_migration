@@ -47,6 +47,9 @@ This sets some global options including
 * :exclamation: bool types are no longer quoted
   * pbrt-v3 `"bool parm" ["true"]`
   * pbrt-v4 `"bool parm" [true]`
+* :exclamation: spectrum blackbody parameters have changed, intensity is no longer specified
+  * pbrt-v3 `"blackbody parm" [6500 0.5]`
+  * pbrt-v4 `"blackbody parm" [6500]`
 
 ## Camera Changes
 #### EnvironmentCamera is now SphericalCamera
