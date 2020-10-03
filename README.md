@@ -208,9 +208,9 @@ The following options are supported
 ## Light Changes
 #### All Lights
 * `spectrum scale` is now `float scale`
+* New `float power` parameter defaults to -1
 #### Goniometric Light
 * `string  mapname` is now `string filename`
-* New `float power` parameter defaults to -1
 #### Infinite Light
 * Remove `integer samples` parameter
 * `string  mapname` is now `string filename`
