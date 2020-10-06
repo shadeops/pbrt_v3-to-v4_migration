@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/e5cfdcc
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/0e4b5ae
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -421,7 +421,7 @@ This was previously the Heterogeneous Medium in pbrt-v3
   * General Medium parameters described above
   * `float density` defaults to 1
   * `float wispiness` defaults to 1
-  * `float extent` defauts to 1
+  * `float frequency` defauts to 5
   * `point3 p0` defaults to (0,0,0)
   * `point3 p1` defaults to (1,1,1)  
 #### New NanoVDB Medium
