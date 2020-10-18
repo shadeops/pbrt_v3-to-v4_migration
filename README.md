@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/0e4b5ae
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/f86a3e4
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -29,6 +29,7 @@ A few emoji are used to call attention for the reasons listed below-
 
 ## Base Scene Description Changes
 * :exclamation:`WorldEnd` has been removed
+* :exclamation:`TransformBegin` and `TransformEnd` are deprecated, use `AttributeBegin` and `AttributeEnd` instead.
 * New `ColorSpace "name"` graphics state Attribute(?)<br>
 Sets the ColorSpace to be "name" which defines the color space of spectrum parameters. Accepts the following builtin names -
   * srgb (default)
