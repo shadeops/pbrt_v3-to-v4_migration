@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/f86a3e4
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/e11be78
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -193,6 +193,7 @@ The following options are supported
   * bvh (default)
   * exhaustive *(new)*
 * New `bool regularize` parameter, defaults to false
+* Remove `float rrthreshold` parameter
 #### SPPM Integrator
 * New `integer seed` parameter, defaults to 0<br>
 (This does **not** lookup the seed value stored in `Options`)
@@ -205,6 +206,7 @@ The following options are supported
   * bvh (default)
   * exhaustive *(new)*
 * New `bool regularize` parameter, defaults to false
+* Remove `float rrthreshold` parameter
 
 ## Light Changes
 #### All Lights
