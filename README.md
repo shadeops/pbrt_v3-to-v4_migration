@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/e11be78
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/65cadf5
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -36,6 +36,12 @@ Sets the ColorSpace to be "name" which defines the color space of spectrum param
   * dci-p3
   * rec2020
   * aces2065-1
+* New `Attribute "target" "parm" [ value ]` for setting parameter "overrides" for various targets which include -
+  * shape
+  * light
+  * material
+  * medium
+  * texture
 * New `Option "name" "value"` call added<br>
 This sets some global options including
   * `bool disablepixeljitter` (false)
@@ -197,7 +203,7 @@ The following options are supported
 #### SPPM Integrator
 * New `integer seed` parameter, defaults to 0<br>
 (This does **not** lookup the seed value stored in `Options`)
-* New `bool regularize` parameter, defaults to false
+* Remove `integer iterations` parameter
 #### VolPath Integrator
 * Replace `string lightsamplestrategy` with `string lightsampler`<br>
 The following options are supported
