@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/65cadf5
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/89e7448
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -8,6 +8,7 @@ This list is currently based off the changes made up to this commit- https://git
 * [Camera](#camera-changes)
 * [Film](#film-changes)
 * [Filter](#filter-changes)
+* [Sampler](#sampler-changes)
 * [Integrator](#integrator-changes)
 * [Light](#light-changes)
 * [Material](#material-changes)
@@ -144,7 +145,8 @@ The default sampler is "pmj02bn"
 #### Sobol Sampler
 * New `string randomization` parameter with the following options
   * none
-  * owen (default)
+  * owen
+  * fastowen (default)
   * cranleypatternson
   * xor
 #### Stratified Sampler
