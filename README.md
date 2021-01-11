@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/89e7448
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/dc107ca
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -139,6 +139,9 @@ The default sampler is "pmj02bn"
 * Declared with "pmj02bn"
 * Parameters:
   * `integer pixelsamples` parameter (defaults to 16)
+#### New ZSobolSampler
+* Declared with "zsobol"
+* This has the same parameters as the Sobol Sampler
 #### 02Sequence Sampler has become the more aptly named PaddedSobol Sampler
 * Declared with "paddedsobol"
 * This has the same parameters as the Sobol Sampler
@@ -148,11 +151,17 @@ The default sampler is "pmj02bn"
   * owen
   * fastowen (default)
   * cranleypatternson
-  * xor
+  * permutedigits (default if samples is <= 2)
 #### Stratified Sampler
 * Remove `integer dimensions` parameter
 #### Halton Sampler
 * Remove `bool samplepixelcenter` parameter
+* New `string randomization` parameter with the following options
+  * none
+  * owen
+  * fastowen
+  * cranleypatternson
+  * permutedigits (default)
 
 ## Integrator Changes
 #### General
@@ -245,6 +254,7 @@ The following options are supported
 ## Material Changes
 #### General Changes
 * `float texture bumpmap` has been renamed to `float texture displacement`
+* `string normalmap` has been added, defaults to ""
 #### Following Materials Have Been Removed
 * Uber
 * Translucent
