@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/dc107ca
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/a00d43b
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -344,6 +344,7 @@ Type name: "dielectric"
 * `float texture roughness` defaults to 0
 * `float texture uroughness` defaults to `roughness`
 * `float texture vroughness` defaults to `roughness`
+* `spectrum texture tint` defaults to null
 * `bool remaproughness` defaults to true
 #### Subsurface Material
 * Remove `spectrum Kr` parameter
@@ -371,6 +372,7 @@ Type name: "dielectric"
   * trilinear
   * ewa
 * Remove `bool gamma` parameter
+* New `bool invert` parameter, defaults to false
 * New `string encoding` parameter, this accepts either a builtin name or a "gamma value".<br>
 One of the following options can be specified. (The default is based on the file extension of the texture.)
   * linear
