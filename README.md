@@ -159,7 +159,6 @@ The default sampler is "pmj02bn"
 * New `string randomization` parameter with the following options
   * none
   * owen
-  * fastowen
   * cranleypatternson
   * permutedigits (default)
 
