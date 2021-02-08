@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/a00d43b
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/ecad49e
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -85,9 +85,7 @@ This sets some global options including
 * Default film is "rgb"
 * Currently both RGBFilm and GBufferFilm have the same parameters.
 * New Sensor Parameters:
-  * `float fnumber` defaults to 1
   * `float iso` defaults to 100
-  * `float c` defaults to 100*PI
   * `float whitebalance` defaults to 0<br>
 *If your whitebalance is 0, and your sensor is something other than cie1931, pbrt will automatically default the sensor to 6500*
   * `string sensor` defaults to "cie1931"<br>
@@ -277,6 +275,7 @@ Type name: "coatedconductor"
 * `float texture interface.vroughness` defaults to `interface.roughness`
 * `spectrum texture conductor.eta` defaults to "metal-Cu-eta"
 * `spectrum texture conductor.k` defaults to "metal-Cu-k"
+* `spectrum texture reflectance` defaults to null, not to be used with `conductor.eta` and `conductor.k`
 * `float texture conductor.roughness` defaults to 0
 * `float texture conductor.uroughness` defaults to `conductor.roughness`
 * `float texture conductor.vroughness` defaults to `conductor.roughness`
@@ -307,6 +306,7 @@ Type name: "conductor"
 * `float texture displacement` defaults to null
 * `spectrum texture eta` defaults to "metal-Cu-eta"
 * `spectrum texture k` defaults to "metal-Cu-k"
+* `spectrum texture reflectance` defaults to null, not to be used with `eta` and `k`
 * `float texture roughness` defaults to 0
 * `float texture uroughness` defaults to `roughness`
 * `float texture vroughness` defaults to `roughness`
