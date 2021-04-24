@@ -148,8 +148,7 @@ The default sampler is "pmj02bn"
   * none
   * owen
   * fastowen (default)
-  * cranleypatternson
-  * permutedigits (default if samples is <= 2)
+  * permutedigits
 #### Stratified Sampler
 * Remove `integer dimensions` parameter
 #### Halton Sampler
@@ -157,7 +156,6 @@ The default sampler is "pmj02bn"
 * New `string randomization` parameter with the following options
   * none
   * owen
-  * cranleypatternson
   * permutedigits (default)
 
 ## Integrator Changes
