@@ -211,7 +211,7 @@ The following options are supported
 * New `bool regularize` parameter, defaults to false
 * Remove `float rrthreshold` parameter
 #### SPPM Integrator
-* New `integer seed` parameter, defaults to 0<br>
+* New `integer seed` parameter, defaults to 6502<br>
 (This does **not** lookup the seed value stored in `Options`)
 * Remove `integer iterations` parameter
 #### VolPath Integrator
