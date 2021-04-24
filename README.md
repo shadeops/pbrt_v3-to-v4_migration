@@ -389,7 +389,7 @@ One of the following options can be specified. (The default is based on the file
 #### Wrinkled Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 #### Ptex Texture
-* New `texture scale` parameter, defaults to 1
+* New `float scale` parameter, defaults to 1
 
 ## Shape Changes
 #### General
