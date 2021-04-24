@@ -133,6 +133,8 @@ The sensor parameter accepts any of the following camera sensors.
 ## Sampler Changes
 The default sampler is "zsobol"
 #### Remove MaxMinDist Sampler
+#### Renamed Random Sampler to Independent Sampler
+* Declared with "independent"
 #### New PMJ02BN Sampler
 * Declared with "pmj02bn"
 * Parameters:
