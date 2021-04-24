@@ -430,7 +430,11 @@ This was previously the Heterogeneous Medium in pbrt-v3
 * Declare with "uniformgrid"
 * Parameters:
   * General Medium parameters described above
-  * `float[]|rgb[] density`
+  * `float[] density`
+  * `float[] density.sigma_a`
+  * `float[] density.sigma_s`
+  * `rgb[] density.rgb`
+  * Only one combination of density or (density.sigma_a and density.sigma_s) or density.rgb is allowed
   * `integer nx` defaults to 1
   * `integer ny` defaults to 1
   * `integer nz` defaults to 1
