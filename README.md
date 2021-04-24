@@ -266,6 +266,8 @@ The following options are supported
 * Glass
 * Fourier
 * Disney
+#### None Material renamed Interface Material
+* Declared with "interface", lights with an interface material are ignored.
 #### CoatedConductor Material
 Type name: "coatedconductor"
 ##### Parameters:
