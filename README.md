@@ -269,7 +269,7 @@ The following options are supported
 Type name: "coatedconductor"
 ##### Parameters:
 * `float texture displacement` defaults to null
-* `float interface.eta` defaults to 1.5
+* `spectrum interface.eta` defaults to 1.5
 * `float texture thickness` defaults to 0.01
 * `float texture interface.roughness` defaults to 0
 * `float texture interface.uroughness` defaults to `interface.roughness`
@@ -290,7 +290,7 @@ Type name: "coateddiffuse"
 ##### Parameters:
 * `float texture displacement` defaultsto null
 * `spectrum texture reflectance` defaults to 0.5
-* `float texture eta` default 1.5
+* `spectrum eta` default 1.5
 * `float texture thickness` default 0.01
 * `float texture roughness` defaults to 0
 * `float texture uroughness` defaults to `roughness`
@@ -335,12 +335,12 @@ Type name: "measured"
 Type name: "thindielectric"
 ##### Parameters:
 * `float texture displacement` defaults to null
-* `float|spectrum texture eta` defaults to 1.5
+* `spectrum eta` defaults to 1.5
 #### Dielectric Material
 Type name: "dielectric"
 ##### Parameters:
 * `float texture displacement` defaults to null
-* `float|spectrum texture eta` defaults to 1.5
+* `spectrum eta` defaults to 1.5
 * `float texture roughness` defaults to 0
 * `float texture uroughness` defaults to `roughness`
 * `float texture vroughness` defaults to `roughness`
