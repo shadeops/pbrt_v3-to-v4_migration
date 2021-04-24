@@ -132,6 +132,7 @@ The sensor parameter accepts any of the following camera sensors.
 
 ## Sampler Changes
 The default sampler is "zsobol"
+* All samplers have a `int seed` parameter that defaults to a global `Option "seed" value`
 #### Remove MaxMinDist Sampler
 #### Renamed Random Sampler to Independent Sampler
 * Declared with "independent"
