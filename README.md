@@ -131,7 +131,7 @@ The sensor parameter accepts any of the following camera sensors.
 * `float alpha` is now `float sigma` default is 0.5
 
 ## Sampler Changes
-The default sampler is "pmj02bn"
+The default sampler is "zsobol"
 #### Remove MaxMinDist Sampler
 #### New PMJ02BN Sampler
 * Declared with "pmj02bn"
