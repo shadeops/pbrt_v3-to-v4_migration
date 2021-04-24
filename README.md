@@ -31,6 +31,7 @@ A few emoji are used to call attention for the reasons listed below-
 ## Base Scene Description Changes
 * :exclamation:`WorldEnd` has been removed
 * :exclamation:`TransformBegin` and `TransformEnd` are deprecated, use `AttributeBegin` and `AttributeEnd` instead.
+* New `Import` statement, similar to the `Include` but does not maintain graphics state (but does maintain defined objects).
 * New `ColorSpace "name"` graphics state Attribute(?)<br>
 Sets the ColorSpace to be "name" which defines the color space of spectrum parameters. Accepts the following builtin names -
   * srgb (default)
