@@ -176,6 +176,18 @@ The default sampler is "zsobol"
 * Declared with "randomwalk"
 * Parameters:
   * `integer maxdepth` defaults to 5
+#### New Function Integrator
+* Declared with "function"
+* Parameters:
+  * `string function`
+  The following options are supported
+    * step (default)
+    * diagonal
+    * disk
+    * checkerboard
+    * rotatedcheckerboard
+    * gaussian
+  * `string filename` defaults to Options->imageFile if supplied otherwise {function}-mse.txt
 #### New SimplePath Integrator
 * Declared with "simplepath"
 * Parameters:
