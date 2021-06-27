@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/a4798db
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/44eaab0
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -259,6 +259,7 @@ The following options are supported
 * New "string filename" parameter, defaults to ""
 * New `float power` parameter, defaults to -1
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
+* Alpha textures act on emission similar to visiblity. A special case when alpha is a constant 0 will result in an emissive invisible light source.
 #### Distant Light
 * New `float illuminance` parameter, defaults to -1
 
