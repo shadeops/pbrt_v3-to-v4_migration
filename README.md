@@ -377,6 +377,12 @@ Type name: "dielectric"
 
 ## Texture Changes
 #### Remove UVTexture
+#### New DirectionMix Texture
+* Supports both float and spectrum
+* Parameters are
+  * `float|spectrum texture tex1` defaults to 0.0
+  * `float|specturm texture tex2` defaults to 1.0
+  * `vector3 dir` defaults to (0.0, 1.0, 0.0)
 #### Fbm Texture
 * Output is now only float, in pbrt-v3 it was float and spectrum.
 #### ImageMap Texture
