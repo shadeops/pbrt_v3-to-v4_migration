@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/44eaab0
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/dfc600d
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -448,7 +448,7 @@ One of the following options can be specified. (The default is based on the file
 ## Medium Changes
 #### Homogeneous Grid
 * New `spectrum Le` parameter, defaults to 0
-#### General Mediums
+#### General (Cuboid) Mediums
 Mediums with a varying medium now have a common interface to define scattering properties. These parameters include:
 * `string preset` default ("")<br>
 *The list of presets scattering properties has not changed since pbrt-v3*
