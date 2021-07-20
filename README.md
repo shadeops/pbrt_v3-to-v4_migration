@@ -246,8 +246,9 @@ The following options are supported
 * Remove `integer samples` parameter
 * `string  mapname` is now `string filename`
 * New `float illuminance` parameter, defaults to -1
-* New `point[4] portal` parameter, (only supported when using `string filename`)
+* New `point[4] portal` parameter
 * `spectrum L` and `string filename` are mutually exclusive and should not be declared together.
+   If `portal` and `L` are used, `L` is converted to an RGB texture.
 #### Projection Light
 * `string  mapname` is now `string filename`
 * Remove `spectrum I` parameter<br>
