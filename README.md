@@ -121,7 +121,11 @@ The sensor parameter accepts any of the following camera sensors.
 * `float maxsampleluminance` changed to `float maxcomponentvalue`
 * New `bool savefp16` parameter for saving half images. (default true)
 #### New GBufferFilm
-* Parameters are the same as RGBFilm
+* Parameters are the same as RGBFilm with the additional -
+  * `string coordinatesystem` defaults to "camera"<br>
+    Possible values include:
+    * "camera"
+    * "world"
 
 ## Filter Changes
 #### All Filters
