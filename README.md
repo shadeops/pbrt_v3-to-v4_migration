@@ -432,6 +432,8 @@ One of the following options can be specified. (The default is based on the file
 * :exclamation:Change uv parameter from `float[] uv` to `point2[] uv`
 #### Ply Shape
 * Remove `texture shadowalpha` parameter
+* Add `float texture displacement` parameter, defaults to null (deactivated)
+* Add `float displacement.edgelength` parameter, defaults to 1.0
 
 ## Medium Changes
 #### Homogeneous Grid
