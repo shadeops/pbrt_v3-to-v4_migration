@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/dfc600d
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/b39932a
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -53,6 +53,7 @@ This sets some global options including
   * `integer seed` (0)
   * `bool forcediffuse` (false)
   * `bool pixelstats` (false)
+  * `bool wavefront` (false)
 * Type Changes
   * :exclamation: bool types are no longer quoted
     * pbrt-v3 `"bool parm" ["true"]`
@@ -338,14 +339,12 @@ Type name: "diffuse"
 ##### Parameters:
 * `float texture displacement` defaults to null
 * `spectrum texture reflectance` defaults to 0.5
-* `float texture sigma` defaults to 0
 #### DiffuseTransmission Material
 Type name: "diffusetransmission"
 ##### Parameters:
 * `float texture displacement` defaults to null
 * `spectrum texture reflectance` defaults to 0.25
 * `spectrum texture transmittance` defaults to 0.25
-* `float texture sigma` defaults to 0
 * `float scale` defaults to 1
 #### Measured Material
 Type name: "measured"
