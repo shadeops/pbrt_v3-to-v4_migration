@@ -48,6 +48,11 @@ Sets the ColorSpace to be "name" which defines the color space of spectrum param
 This sets some global options including
   * `bool disablepixeljitter` (false)
   * `bool disablewavelengthjitter` (false)
+  * `float displacementedgescale` (1.0)
+  * `string rendercoordsys` valid values are:
+    * camera
+    * cameraworld (default)
+    * world
   * `string msereferenceimage` ("")
   * `string msereferenceout` ("")
   * `integer seed` (0)
@@ -445,40 +450,54 @@ One of the following options can be specified. (The default is based on the file
 * Add `float displacement.edgelength` parameter, defaults to 1.0
 
 ## Medium Changes
-#### Homogeneous Grid
+#### Homogeneous Medium
 * New `spectrum Le` parameter, defaults to 0
-#### General (Cuboid) Mediums
-Mediums with a varying medium now have a common interface to define scattering properties. These parameters include:
-* `string preset` default ("")<br>
-*The list of presets scattering properties has not changed since pbrt-v3*
-* `spectrum sigma_a` defaults to (1, 1, 1)
-* `spectrum sigma_s` defaults to (1, 1, 1)
-* `float scale` defaults to 1.0
-* `float g` defaults to 0.0
+* `string preset` default ("") Only exists on Homogeneous Medium
+* The list of presets scattering properties has not changed since pbrt-v3*
 #### New Uniform Medium
 This was previously the Heterogeneous Medium in pbrt-v3
 * Declare with "uniformgrid"
 * Parameters:
   * General Medium parameters described above
   * `float[] density`
-  * `float[] density.sigma_a`
-  * `float[] density.sigma_s`
-  * `rgb[] density.rgb`
-  * Only one combination of density or (density.sigma_a and density.sigma_s) or density.rgb is allowed
+  * `float[] temperature`
+  * `float[] Lescale`
+  * Only one combination of Le or temperature is allowed
+  * `spectrum sigma_a` defaults to (1, 1, 1)
+  * `spectrum sigma_s` defaults to (1, 1, 1)
+  * `spectrum Le` defaults to 0
+  * `float scale` defaults to 1.0
+  * `float g` defaults to 0.0
   * `integer nx` defaults to 1
   * `integer ny` defaults to 1
   * `integer nz` defaults to 1
-  * `spectrum Le` defaults to 0
-  * `float[] Lescale` defaults to 0
+  * `point3 p0` defaults to (0,0,0)
+  * `point3 p1` defaults to (1,1,1)
+#### New RGBGrid Medium
+* Declare with "rgbgrid"
+* Parameters:
+  * `rgb[] sigma_a`
+  * `rgb[] sigma_s`
+  * `rgb[] Le`
+  * Can specify sigma_a and/or sigma_s. But if Le is used then sigma_a is required.
+  * `float LeScale` defaults to 0
+  * `float scale` defaults to 1.0
+  * `float g` defaults to 0.0
+  * `integer nx` defaults to 1
+  * `integer ny` defaults to 1
+  * `integer nz` defaults to 1
   * `point3 p0` defaults to (0,0,0)
   * `point3 p1` defaults to (1,1,1)
 #### New Cloud Medium
 * Declare with "cloud"
 * Parameters:
-  * General Medium parameters described above
   * `float density` defaults to 1
   * `float wispiness` defaults to 1
   * `float frequency` defauts to 5
+  * `spectrum sigma_a` defaults to (1, 1, 1)
+  * `spectrum sigma_s` defaults to (1, 1, 1)
+  * `spectrum Le` defaults to 0
+  * `float g` defaults to 0.0
   * `point3 p0` defaults to (0,0,0)
   * `point3 p1` defaults to (1,1,1)  
 #### New NanoVDB Medium
@@ -487,8 +506,11 @@ Looks for fields within the VDB of the name "density" and "temperature"
 * Parameters:
   * General Medium parameters described above
   * `string filename` defaults to ""
-  * :exclamation:`float LeScale` defaults to 1.0<br>
-  Currently uniform group has a similar parameter with different case `float Lescale`
+  * `float LeScale` defaults to 1.0
   * `float temperaturecutoff` defaults to 0.0
   * `float temperaturescale` defaults to 1.0
+  * `spectrum sigma_a` defaults to (1, 1, 1)
+  * `spectrum sigma_s` defaults to (1, 1, 1)
+  * `float scale` defaults to 1.0
+
  
