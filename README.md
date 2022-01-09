@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/b39932a
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/8c6fc5
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -48,6 +48,7 @@ Sets the ColorSpace to be "name" which defines the color space of spectrum param
 This sets some global options including
   * `bool disablepixeljitter` (false)
   * `bool disablewavelengthjitter` (false)
+  * `bool disabletexturefiltering` (false)
   * `float displacementedgescale` (1.0)
   * `string rendercoordsys` valid values are:
     * camera
@@ -197,7 +198,9 @@ The default sampler is "zsobol"
     * checkerboard
     * rotatedcheckerboard
     * gaussian
+  * `bool skipbad` (true)
   * `string filename` defaults to Options->imageFile if supplied otherwise {function}-mse.txt
+  * `string imagefilename` ("")
 #### New SimplePath Integrator
 * Declared with "simplepath"
 * Parameters:
@@ -369,7 +372,6 @@ Type name: "dielectric"
 * `float texture roughness` defaults to 0
 * `float texture uroughness` defaults to `roughness`
 * `float texture vroughness` defaults to `roughness`
-* `spectrum texture tint` defaults to null
 * `bool remaproughness` defaults to true
 #### Subsurface Material
 * Remove `spectrum Kr` parameter
