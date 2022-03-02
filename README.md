@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/8c6fc5
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/999be0
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -128,11 +128,19 @@ The sensor parameter accepts any of the following camera sensors.
 * `float maxsampleluminance` changed to `float maxcomponentvalue`
 * New `bool savefp16` parameter for saving half images. (default true)
 #### New GBufferFilm
+* Declaration is "gbuffer"
 * Parameters are the same as RGBFilm with the additional -
   * `string coordinatesystem` defaults to "camera"<br>
     Possible values include:
     * "camera"
     * "world"
+#### New SpectralFilm
+* Declaration is "spectral"
+* Parameters are the same as RGBFilm with the additional -
+  * `integer buckets` defaults to 16
+  * `float lambdamin` defaults to 360
+  * `float lambdamax` defaults to 830
+   
 
 ## Filter Changes
 #### All Filters
