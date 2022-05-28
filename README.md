@@ -1,6 +1,6 @@
 # Scene Description Changes from pbrt-v3 to pbrt-v4
 
-This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/999be0
+This list is currently based off the changes made up to this commit- https://github.com/mmp/pbrt-v4/tree/cdccb7
 
 ## Table of Contents
 * [Preamble](#preamble)
@@ -392,6 +392,8 @@ Type name: "dielectric"
 * Change `spectrum texture amount` to `float texture amount`
 * Remove `string namedmaterial1` and `string namedmaterial2`
 * Add `string[2] materials`
+#### Hair Material
+* Change `spectrum texture color` to `spectrum texture reflectance` (color still works if reflectance isn't specified)
 
 ## Texture Changes
 #### Remove UVTexture
@@ -457,7 +459,7 @@ One of the following options can be specified. (The default is based on the file
 #### Ply Shape
 * Remove `texture shadowalpha` parameter
 * Add `float texture displacement` parameter, defaults to null (deactivated)
-* Add `float displacement.edgelength` parameter, defaults to 1.0
+* Add `float edgelength` parameter, defaults to 1.0
 
 ## Medium Changes
 #### Homogeneous Medium
