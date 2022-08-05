@@ -338,7 +338,6 @@ Type name: "coateddiffuse"
 * `integer nsamples` defaults to 1
 * `float texture g` defaults to 0
 * `spectrum texture albedo` defaults to 0
-* `bool twosided` defaults to true
 #### Conductor Material
 Type name: "conductor"
 ##### Parameters:
